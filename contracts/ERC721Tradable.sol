@@ -24,8 +24,9 @@ abstract contract ERC721Tradable is ContextMixin, ERC721Enumerable, NativeMetaTr
   constructor(
     string memory _name,
     string memory _symbol,
-    address _proxyRegistryAddress
-  ) Pixel(_name, _symbol) {
+    address _proxyRegistryAddress,
+    address _ownerOfTokens
+  ) Pixel(_name, _symbol, _ownerOfTokens) {
     proxyRegistryAddress = _proxyRegistryAddress;
     _initializeEIP712(_name);
   }

@@ -30,12 +30,12 @@ using Address for address;
   /**
    * @dev Initializes the contract by setting a `name` and a `symbol` to the token collection.
    */
-  constructor(string memory name_, string memory symbol_) {
+  constructor(string memory name_, string memory symbol_, address _ownerOfTokens) {
     _name = name_;
     _symbol = symbol_;
-    _balances[msg.sender] = 1024;
+    _balances[_ownerOfTokens] = 1024;
     for (uint256 i = 1; i < 1025; i++) {
-      emit Transfer(address(0), msg.sender, i);
+      emit Transfer(address(0), _ownerOfTokens, i);
     }
   }
 
