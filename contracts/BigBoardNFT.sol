@@ -5,18 +5,15 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract BigBoardNFT is ERC721, Ownable {
-  address private ownerOfToken;
   bool private alreadyMinted;
 
-  constructor(address defaultOwnerOfToken) ERC721("Big Board NFT", "BBNFT") {
-    ownerOfToken = defaultOwnerOfToken;
-  }
+  constructor() ERC721("Big Board NFT", "BBNFT") {}
 
-  function mintTotalSupply() public onlyOwner {
+  function mintTotalSupply(address to) public onlyOwner {
     require(alreadyMinted == false, "ERC721: Mint already executed");
 
     for (uint256 i = 1; i < 1025; i++) {
-      _mint(ownerOfToken, i);
+      _mint(to, i);
     }
 
     alreadyMinted = true;
