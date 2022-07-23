@@ -30,7 +30,13 @@ const config: HardhatUserConfig = {
       url: `https://eth-rinkeby.alchemyapi.io/v2/fNmtusma13Sxp3clfzykKe2Qb3YuU54l`,
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
-      gasPrice: 50000000000
+      gasPrice: 5000000000,
+    },
+    mainnet: {
+      url: `https://eth-mainnet.g.alchemy.com/v2/fNmtusma13Sxp3clfzykKe2Qb3YuU54l`,
+      chainId: 1,
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+      gasPrice: 9000000000,
     },
   },
   gasReporter: {
